@@ -1,22 +1,23 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Client/ClientMasterPage.master" AutoEventWireup="true" CodeFile="ClientHomeIPage.aspx.cs" Inherits="Client_ClientHomeIPage" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPage" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPage" runat="Server">
 
     <%--  --%>
 
 
-     <!-- Slider main container Start -->
+    <!-- Slider main container Start -->
     <div class="home1-slider swiper-container">
         <div class="swiper-wrapper">
             <div class="home1-slide-item swiper-slide" data-swiper-autoplay="5000" data-bg-image="assets/images/slider/home1/slide-1.png">
                 <div class="home1-slide1-content">
                     <span class="bg"></span>
                     <span class="slide-border"></span>
-                    <span class="icon"><img src="assets/images/slider/home1/slide-1-1.png" alt="Slide Icon"></span>
+                    <span class="icon">
+                        <img src="assets/images/slider/home1/slide-1-1.png" alt="Slide Icon"></span>
                     <h2 class="title">Handicraft Shop</h2>
                     <h3 class="sub-title">Just for you</h3>
                     <div class="link"><a href="shop.html">shop now</a></div>
@@ -31,7 +32,9 @@
                         <img src="assets/images/slider/home1/slide-2-3.png" alt="Slide Icon">
                     </span>
                     <h2 class="title">Newly arrived</h2>
-                    <h3 class="sub-title">Sale up to <br>10%</h3>
+                    <h3 class="sub-title">Sale up to
+                        <br>
+                        10%</h3>
                     <div class="link"><a href="shop.html">shop now</a></div>
                 </div>
             </div>
@@ -71,7 +74,9 @@
                             <img src="assets/images/banner/sale/sale-banner1-1.1.png" alt="Sale Banner Icon">
                             <span class="title">Spring sale</span>
                             <h2 class="sale-percent">
-                                <span class="number">40</span> % <br> off
+                                <span class="number">40</span> %
+                                <br>
+                                off
                             </h2>
                             <a href="shop.html" class="link">shop now</a>
                         </div>
@@ -81,7 +86,8 @@
                 <div class="col-lg-6 col-md-6 col-12 learts-mb-40">
                     <div class="sale-banner2">
                         <div class="inner">
-                            <div class="image"><img src="assets/images/banner/sale/sale-banner2-1.png" alt=""></div>
+                            <div class="image">
+                                <img src="assets/images/banner/sale/sale-banner2-1.png" alt=""></div>
                             <div class="content row justify-content-between mb-n3">
                                 <div class="col-auto mb-3">
                                     <h2 class="sale-percent">10% off</h2>
@@ -108,7 +114,8 @@
                 <div class="col">
                     <div class="category-banner1">
                         <div class="inner">
-                            <a href="shop.html" class="image"><img src="assets/images/banner/category/banner-s1-1.png" alt=""></a>
+                            <a href="shop.html" class="image">
+                                <img src="assets/images/banner/category/banner-s1-1.png" alt=""></a>
                             <div class="content">
                                 <h3 class="title">
                                     <a href="shop.html">Gift ideas</a>
@@ -122,7 +129,8 @@
                 <div class="col">
                     <div class="category-banner1">
                         <div class="inner">
-                            <a href="shop.html" class="image"><img src="assets/images/banner/category/banner-s1-1.png" alt=""></a>
+                            <a href="shop.html" class="image">
+                                <img src="assets/images/banner/category/banner-s1-1.png" alt=""></a>
                             <div class="content">
                                 <h3 class="title">
                                     <a href="shop.html">Home Decor</a>
@@ -136,7 +144,8 @@
                 <div class="col">
                     <div class="category-banner1">
                         <div class="inner">
-                            <a href="shop.html" class="image"><img src="assets/images/banner/category/banner-s1-1.png" alt=""></a>
+                            <a href="shop.html" class="image">
+                                <img src="assets/images/banner/category/banner-s1-1.png" alt=""></a>
                             <div class="content">
                                 <h3 class="title">
                                     <a href="shop.html">Kids & Babies</a>
@@ -150,7 +159,8 @@
                 <div class="col">
                     <div class="category-banner1">
                         <div class="inner">
-                            <a href="shop.html" class="image"><img src="assets/images/banner/category/banner-s1-1.png" alt=""></a>
+                            <a href="shop.html" class="image">
+                                <img src="assets/images/banner/category/banner-s1-1.png" alt=""></a>
                             <div class="content">
                                 <h3 class="title">
                                     <a href="shop.html">Kitchen</a>
@@ -164,7 +174,8 @@
                 <div class="col">
                     <div class="category-banner1">
                         <div class="inner">
-                            <a href="shop.html" class="image"><img src="assets/images/banner/category/banner-s1-1.png" alt=""></a>
+                            <a href="shop.html" class="image">
+                                <img src="assets/images/banner/category/banner-s1-1.png" alt=""></a>
                             <div class="content">
                                 <h3 class="title">
                                     <a href="shop.html">Kniting & Sewing</a>
@@ -202,7 +213,7 @@
                                     <span class="onsale">-13%</span>
                                 </span>
                                 <img src="assets/images/product/s328/product-1.png" alt="Product Image">
-                                <img class="image-hover " src="assets/images/product/s328/product-1-hover.png" alt="Product Image">
+                                <img class="image-hover " src="assets/images/product/s328/product-1-hover.ng" alt="Product Image">
                             </a>
                             <a href="wishlist.html" class="add-to-wishlist hintT-left" data-hint="Add to wishlist"><i class="far fa-heart"></i></a>
                         </div>
@@ -210,7 +221,7 @@
                             <h6 class="title"><a href="product-details.html">Boho Beard Mug</a></h6>
                             <span class="price">
                                 <span class="old">$45.00</span>
-                            <span class="new">$39.00</span>
+                                <span class="new">$39.00</span>
                             </span>
                             <div class="product-buttons">
                                 <a href="#quickViewModal" data-bs-toggle="modal" class="product-button hintT-top" data-hint="Quick View"><i class="fas fa-search"></i></a>
@@ -225,15 +236,14 @@
                     <div class="product">
                         <div class="product-thumb">
                             <a href="product-details.html" class="image">
-                                <img src="assets/images/product/s328/product-1.png" alt="Product Image">
-                                <img class="image-hover " src="assets/images/product/s328/product-1-hover.png" alt="Product Image">
+                                <img src="assets/images/product/s328/product-2.png" alt="Product Image">
+                                <img class="image-hover " src="assets/images/product/s328/product-2-hover.png" alt="Product Image">
                             </a>
                             <a href="wishlist.html" class="add-to-wishlist hintT-left" data-hint="Add to wishlist"><i class="far fa-heart"></i></a>
                         </div>
                         <div class="product-info">
                             <h6 class="title"><a href="product-details.html">Motorized Tricycle</a></h6>
-                            <span class="price">
-                                $35.00
+                            <span class="price">$35.00
                             </span>
                             <div class="product-buttons">
                                 <a href="#quickViewModal" data-bs-toggle="modal" class="product-button hintT-top" data-hint="Quick View"><i class="fas fa-search"></i></a>
@@ -251,15 +261,14 @@
                                 <span class="hot">hot</span>
                             </span>
                             <a href="product-details.html" class="image">
-                                <img src="assets/images/product/s328/product-1.png" alt="Product Image">
-                                <img class="image-hover " src="assets/images/product/s328/product-1-hover.png" alt="Product Image">
+                                <img src="assets/images/product/s328/product-3.png" alt="Product Image">
+                                <img class="image-hover " src="assets/images/product/s328/product-3-hover.png" alt="Product Image">
                             </a>
                             <a href="wishlist.html" class="add-to-wishlist hintT-left" data-hint="Add to wishlist"><i class="far fa-heart"></i></a>
                         </div>
                         <div class="product-info">
                             <h6 class="title"><a href="product-details.html">Walnut Cutting Board</a></h6>
-                            <span class="price">
-                                $100.00
+                            <span class="price">$100.00
                             </span>
                             <div class="product-buttons">
                                 <a href="#quickViewModal" data-bs-toggle="modal" class="product-button hintT-top" data-hint="Quick View"><i class="fas fa-search"></i></a>
@@ -277,8 +286,8 @@
                                 <span class="product-badges">
                                     <span class="onsale">-27%</span>
                                 </span>
-                                <img src="assets/images/product/s328/product-1.png" alt="Product Image">
-                                <img class="image-hover " src="assets/images/product/s328/product-1-hover.png" alt="Product Image">
+                                <img src="assets/images/product/s328/product-4.png" alt="Product Image">
+                                <img class="image-hover " src="assets/images/product/s328/product-4-hover.png" alt="Product Image">
                             </a>
                             <a href="wishlist.html" class="add-to-wishlist hintT-left" data-hint="Add to wishlist"><i class="far fa-heart"></i></a>
                         </div>
@@ -286,7 +295,7 @@
                             <h6 class="title"><a href="product-details.html">Pizza Plate Tray</a></h6>
                             <span class="price">
                                 <span class="old">$30.00</span>
-                            <span class="new">$22.00</span>
+                                <span class="new">$22.00</span>
                             </span>
                             <div class="product-buttons">
                                 <a href="#quickViewModal" data-bs-toggle="modal" class="product-button hintT-top" data-hint="Quick View"><i class="fas fa-search"></i></a>
@@ -301,7 +310,7 @@
                     <div class="product">
                         <div class="product-thumb">
                             <a href="product-details.html" class="image">
-                                <img src="assets/images/product/s328/product-1.png" alt="Product Image">
+                                <img src="assets/images/product/s328/product-5.png" alt="Product Image">
                                 <img class="image-hover " src="assets/images/product/s328/product-5-hover.png" alt="Product Image">
                             </a>
                             <a href="wishlist.html" class="add-to-wishlist hintT-left" data-hint="Add to wishlist"><i class="far fa-heart"></i></a>
@@ -320,8 +329,7 @@
                         </div>
                         <div class="product-info">
                             <h6 class="title"><a href="product-details.html">Minimalist Ceramic Pot</a></h6>
-                            <span class="price">
-                                $120.00
+                            <span class="price">$120.00
                             </span>
                             <div class="product-buttons">
                                 <a href="#quickViewModal" data-bs-toggle="modal" class="product-button hintT-top" data-hint="Quick View"><i class="fas fa-search"></i></a>
@@ -334,15 +342,16 @@
 
 
             </div>
-            <!-- Products End -->
+        </div>
+    </div>
+    <!-- Products End -->
 
 
     <%--  --%>
- 
 </asp:Content>
 
 
 
-<asp:Content ID="Content3" ContentPlaceHolderID="JavaScript" Runat="Server">
+<asp:Content ID="Content3" ContentPlaceHolderID="JavaScript" runat="Server">
 </asp:Content>
 
