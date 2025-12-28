@@ -111,11 +111,11 @@
                         <ul>
 
                             <li><a href="ClientHomeIPage.aspx"><span class="menu-text">Home</span></a></li>
-                            <li class="has-children"><a href="#"><span class="menu-text">Category</span></a>
+                            <li class="has-children"><a><span class="menu-text">Category</span></a>
                                 <ul class="sub-menu">
                                     <asp:Repeater ID="RptCategory" runat="server">
                                         <ItemTemplate>
-                                            <li><a href="portfolio-3-columns.html"><span class="menu-text">Portfolio 3 Columns</span></a></li>
+                                            <li><a href='ClientProductShowPage.aspx?cat=<%#Eval("CategoryId") %>'><span class="menu-text"><%#Eval("Category") %></span></a></li>
                                         </ItemTemplate>
                                     </asp:Repeater>
                                 </ul>
