@@ -1,4 +1,5 @@
-﻿using NTier.Model;
+﻿using NTier.CategoryTblServices;
+using NTier.Model;
 using NTier.ResponseMessages;
 using NTier.UserTblServices;
 using System;
@@ -11,12 +12,24 @@ using System.Web.UI.WebControls;
 public partial class Client_ClientMasterPage : System.Web.UI.MasterPage
 {
     private readonly IUserTblServices db;
+    private readonly ICategoryTblService Cdb;
     public Client_ClientMasterPage()
     {
         db = new UserTblServices();
+        Cdb=new CategorTblservice();
+    }
+    void fillcate()
+    {
+        var cate= Cdb.GetList();
+        if (cate.ContainsKey("Data"))
+        {
+            RptCategory.DataSource = cate["Data"];
+            RptCategory.DataBind();
+        }
     }
     protected void Page_Load(object sender, EventArgs e)
     {
+        fillcate();
         // NOTE :- session get and then print welcome with session id
         if (Session["user"] != null)
         {
