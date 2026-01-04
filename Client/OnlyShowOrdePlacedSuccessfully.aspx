@@ -230,7 +230,7 @@
     <p class="text-muted mb-4">Your order has been placed. Thank you for shopping!</p>
 
     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <a href="Home.aspx" class="btn btn-primary px-4 btn-lg">Continue Shopping</a>
+        <a href="ClientHomeIPage.aspx" class="btn btn-primary px-4 btn-lg">Continue Shopping</a>
     </div>
 
 </div>

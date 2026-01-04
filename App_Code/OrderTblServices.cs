@@ -21,7 +21,7 @@ namespace NTier.OrderTblServices
 {
     public interface IOrderTblService
     {
-        string InsertOrderTbl(OrderTblModel model);
+        Dictionary<string, string> InsertOrderTbl(OrderTblModel model);
 
         Dictionary<string, object> GetListOrderShowAdmin();
 
@@ -31,7 +31,7 @@ namespace NTier.OrderTblServices
 
 
     }
-    public class OrderTblServices : IOrderTblService,IDisposable
+    public class OrderTblServices : IOrderTblService, IDisposable
     {
         private readonly DbConnaction db;
 
@@ -49,21 +49,24 @@ namespace NTier.OrderTblServices
             GC.SuppressFinalize(this);
         }
 
-      
+
 
 
         //______________________________________________________________________________________________ 1.start :- Insert OrderTbl
-        public string InsertOrderTbl(OrderTblModel model)
+        public Dictionary<string, string> InsertOrderTbl(OrderTblModel model)
         {
             string BillNoUid = System.DateTime.Now.ToString("yyyymmddhhmmss").ToString();
-            
-           
+
+
 
             //throw new NotImplementedException();
 
             if (model == null)
             {
-                return Messages.ModelIsNull;
+                return new Dictionary<string, string>()
+                {
+                    {"Msg",Messages.ModelIsNull }
+                };
             }
             var ResponseDict = db.InsertUpdate("SPOrderTblInsertUpdate",
                 new Dictionary<string, object>() {
@@ -83,22 +86,34 @@ namespace NTier.OrderTblServices
 
                 });
 
-          
 
 
 
+            int orderid = Convert.ToInt32(ResponseDict["@orderidOut"].ToString());
 
             // Get retval
             byte retval = Convert.ToByte(ResponseDict["@retval"]);
 
             if (retval == 0)
-                return Messages.Inserted;
+                return new Dictionary<string, string>()
+                {
+                    {"Msg",Messages.Inserted },
+                    {"Id",orderid.ToString() }
+                };
             else if (retval == 1)
-                return Messages.AlreadyExistCategory;
+            {
+                return new Dictionary<string, string>()
+{
+    {"Msg",Messages.AlreadyExistCategory }
+};
+            }
             else
-                return Messages.SomethingWrong;
-
-
+            {
+                return new Dictionary<string, string>()
+{
+    {"Msg",Messages.SomethingWrong}
+};
+            }
         }
 
 
@@ -126,7 +141,7 @@ namespace NTier.OrderTblServices
                         Price = dt.Rows[i]["TotalAmount"].ToString(),
                         PaymentStatus = dt.Rows[i]["PaymentStatus"].ToString(),
                         PaymentType = dt.Rows[i]["PaymentType"].ToString(),
-                      
+
 
                     });
                 }
@@ -172,7 +187,7 @@ namespace NTier.OrderTblServices
                         TotalAmount = dt.Rows[i]["TotalAmount"].ToString(),
                         PaymentStatus = dt.Rows[i]["PaymentStatus"].ToString(),
                         PaymentType = dt.Rows[i]["PaymentType"].ToString(),
-                  
+
                         ProductTitle = dt.Rows[i]["Products"].ToString()
                     });
 
@@ -224,9 +239,9 @@ namespace NTier.OrderTblServices
                         PaymentStatus = dt.Rows[i]["PaymentStatus"].ToString(),
                         //EntryDate = dt.Rows[i]["EntryDate"].ToString(),
                         ProductTitle = dt.Rows[i]["ProductNames"].ToString(),
-                       // Price = dt.Rows[i]["Price"].ToString()
+                        // Price = dt.Rows[i]["Price"].ToString()
 
-                        
+
                         CusttName = dt.Rows[i]["ShippingName"].ToString(),
                         CustMobile = dt.Rows[i]["ShippingMobile"].ToString(),
                         CusttAddress = dt.Rows[i]["ShippingFullAddress"].ToString(),
