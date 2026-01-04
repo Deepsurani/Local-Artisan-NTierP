@@ -1,6 +1,7 @@
 ﻿using NTier.CategoryTblServices;
 using NTier.Model;
 using NTier.ResponseMessages;
+using NTier.SubCategoryTblService;
 using NTier.UserTblServices;
 using System;
 using System.Collections.Generic;
@@ -13,10 +14,13 @@ public partial class Client_ClientMasterPage : System.Web.UI.MasterPage
 {
     private readonly IUserTblServices db;
     private readonly ICategoryTblService Cdb;
+    private readonly ISubCategoryTblServices SCdb;
+
     public Client_ClientMasterPage()
     {
         db = new UserTblServices();
         Cdb=new CategorTblservice();
+        SCdb=new SubCategoryTblServices();
     }
     void fillcate()
     {
@@ -48,6 +52,18 @@ public partial class Client_ClientMasterPage : System.Web.UI.MasterPage
                 user.InnerHtml = model.Name;
             }
 
+        }
+    }
+
+    protected void RptCategory_ItemDataBound(object sender, RepeaterItemEventArgs e)
+    {
+        HiddenField catid=e.Item.FindControl("CateId") as HiddenField;
+        Repeater rptSubCate = e.Item.FindControl("SubCat") as Repeater;
+        var SCAT = SCdb.GetById(Convert.ToInt32(catid));
+        if (SCAT.ContainsKey("Data"))
+        {
+            RptCategory.DataSource = SCAT["Data"];
+            RptCategory.DataBind();
         }
     }
 }
