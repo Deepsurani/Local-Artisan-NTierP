@@ -45,21 +45,31 @@ namespace Database.conction
 
                 }
 
+                if (SQLStoreProcedure == "SPOrderTblInsertUpdate")
+                {
+                    SqlParameter orderIdParam = new SqlParameter("@orderidOut", SqlDbType.Int); // ✅ FIX
+                    orderIdParam.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(orderIdParam);
+                }
                 // add outparameter
 
                 SqlParameter retVal = new SqlParameter("@retval", SqlDbType.TinyInt);
                 retVal.Direction = ParameterDirection.Output;
                 cmd.Parameters.Add(retVal);
 
-
+                int orderid = 0;
                 cmd.ExecuteNonQuery();
-
+                if (SQLStoreProcedure == "SPOrderTblInsertUpdate")
+                {
+                    orderid = Convert.ToInt32(cmd.Parameters["@orderidOut"].Value);
+                }
                 // Read retval after execution
                 byte retvalValue = Convert.ToByte(cmd.Parameters["@retval"].Value);
 
                 return new Dictionary<string, object>() {
 
-            {"@retval", retvalValue}
+            {"@retval", retvalValue},
+                    {"@orderidOut", orderid}
         };
                 int rows = cmd.ExecuteNonQuery();
                 if (rows > 0)

@@ -133,17 +133,20 @@ public partial class Client_ClientOrderSummeryPayment : System.Web.UI.Page
                 };
 
 
-                string result = odb.InsertOrderTbl(model);
+                Dictionary<string,string> result = odb.InsertOrderTbl(model);
 
-                lblMessage.Text = result;
-                lblMessage.Visible = true;
-
-                Response.Redirect("/Client/OnlyShowOrdePlacedSuccessfully.aspx");
-
-                if (RadioButton1.Checked)
+              
+                if (result["Msg"] == Messages.Inserted)
                 {
-                    Response.Redirect("/Client/OnlyShowOrdePlacedSuccessfully.aspx");
+                    Response.Redirect("/Client/OnlyShowOrdePlacedSuccessfully.aspx?oid=" + result["Id"]);
                 }
+                else
+                {
+                    lblMessage.Text = result["Msg"];
+                    lblMessage.Visible = true;
+
+                }
+
 
             }
         }
