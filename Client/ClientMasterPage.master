@@ -112,10 +112,23 @@
 
                             <li><a href="ClientHomeIPage.aspx"><span class="menu-text">Home</span></a></li>
                             <li class="has-children"><a><span class="menu-text">Category</span></a>
+
+
                                 <ul class="sub-menu">
-                                    <asp:Repeater ID="RptCategory" runat="server">
+                                    <asp:Repeater ID="RptCategory" runat="server" OnItemDataBound="RptCategory_ItemDataBound">
                                         <ItemTemplate>
-                                            <li><a href='ClientProductShowPage.aspx?cat=<%#Eval("CategoryId") %>'><span class="menu-text"><%#Eval("Category") %></span></a></li>
+
+                                            <li class="has-children"><a href='ClientProductShowPage.aspx?cat=<%#Eval("CategoryId") %>'><span class="menu-text"><%#Eval("Category") %></span></a>
+                                                <asp:HiddenField ID="CateId" Value='<%#Eval("CategoryId") %>' runat="server" />
+                                                <ul class="sub-menu">
+                                                    <asp:Repeater ID="SubCat" runat="server">
+                                                        <ItemTemplate>
+                                                            <li><a href="blog-details-right-sidebar.html"><span class="menu-text">Right Sidebar</span></a></li>
+
+                                                        </ItemTemplate>
+                                                    </asp:Repeater>
+                                                </ul>
+                                            </li>
                                         </ItemTemplate>
                                     </asp:Repeater>
                                 </ul>
